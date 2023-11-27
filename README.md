@@ -1,4 +1,4 @@
-# Domain Similarity Checker
+# Whois Similarity Check
 
 ## Overview
 
