@@ -19,6 +19,7 @@ This tool compares the WHOIS information of domains to identify similarities and
     - `-t, --threshold`: Threshold for similarity score (default is 1.0, an exact match).
     - `-b, --baseline`: Baseline domain list file, used to establish a baseline for comparison.
     - `-dl, --domain-list`: Domain list file with target domains to check if WHOIS is similar to baseline domains.
+    - `-sc, --show-score, --no-show-score`: Show domains with score, useful for when looking for write similarity score (default: False)
 
 3. Example:
     ```bash
