@@ -42,7 +42,7 @@ def main():
     parser.add_argument("-t", "--threshold", type=float, default=1.0, help="Threshold for similarity score (default is 1.0, exact match)")
     parser.add_argument("-b", "--baseline", required=True, help="Baseline domain list file, used to get baseline", default="baseline_domains.txt")
     parser.add_argument("-dl", "--domain-list", required=True, help="Domain list file with target domains to check if whois is similar to baseline domains", default="test_domains.txt")
-
+    parser.add_argument("-sc", "--show-score", required=False, type=bool, default=False, action=argparse.BooleanOptionalAction, help="Show domains with score, useful for when looking for write similarity score")
     args = parser.parse_args()
 
     baseline_domains_list = read_domains_from_file(args.baseline)
@@ -57,10 +57,17 @@ def main():
     for test_domain in test_domains:
         try:
             test_domain_whois = get_domain_info(test_domain)
+            match = False
             for baseline_domain in baseline_domains:
                 similarity_score = compare_domains(test_domain_whois, baseline_domain)
                 if similarity_score is not None and similarity_score >= args.threshold:
+                    match = True
+            if match:
+                if args.show_score:
                     print(f"Similarity between {test_domain} and {baseline_domain.domain_name[0]}: {similarity_score}")
+                else:
+                    print(test_domain)
+
         except KeyboardInterrupt:
             sys.exit()
         except:
