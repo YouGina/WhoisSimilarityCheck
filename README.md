@@ -19,8 +19,7 @@ This tool compares the WHOIS information of domains to identify similarities and
     - `-t, --threshold`: Threshold for similarity score (default is 1.0, an exact match).
     - `-b, --baseline`: Baseline domain list file, used to establish a baseline for comparison.
     - `-dl, --domain-list`: Domain list file with target domains to check if WHOIS is similar to baseline domains.
-    - `-sc, --show-score, --no-show-score`: Show domains with score, useful for when looking for write similarity score (default: False)
-
+    
 3. Example:
     ```bash
     python whois_check.py -t 0.8 -b baseline_domains.txt -dl test_domains.txt
@@ -31,7 +30,8 @@ This tool compares the WHOIS information of domains to identify similarities and
 - `-t, --threshold`: Set the threshold for the similarity score. Only print results with a score greater than or equal to the threshold.
 - `-b, --baseline`: Specify the baseline domain list file.
 - `-dl, --domain-list`: Specify the domain list file to check for similarity.
-
+- `-sc, --show-score, --no-show-score`: Show domains with score, useful for when looking for write similarity score (default: False)
+  
 ## Output
 
 The tool will print the similarity score between each test domain and the baseline domains, based on the specified threshold.
