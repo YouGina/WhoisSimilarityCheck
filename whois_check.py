@@ -28,7 +28,7 @@ def compare_domains(bl_whois_data, target_whois_data):
         email_similarity = SequenceMatcher(None, str(bl_whois_data.emails), str(target_whois_data.emails)).ratio()
 
     # Calculate an overall similarity score
-    overall_similarity = (name_similarity + registrar_similarity) / 2
+    overall_similarity = (name_similarity + registrar_similarity + email_similarity) / 3
 
     return overall_similarity
 
