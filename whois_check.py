@@ -62,6 +62,7 @@ def main():
                 similarity_score = compare_domains(test_domain_whois, baseline_domain)
                 if similarity_score is not None and similarity_score >= args.threshold:
                     match = True
+                    break
             if match:
                 if args.show_score:
                     print(f"Similarity between {test_domain} and {baseline_domain.domain_name[0]}: {similarity_score}")
